@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
-import "./Templates.css";
+import "./MyForms.css";
 
-interface TemplateData {
+interface FormData {
   title: string;
   imageUrl: string;
 }
 
-// Função de mock para simular a resposta da API com 10 resultados diferentes
-function mockApiCall(): Promise<TemplateData[]> {
+// Função de mock para simular a resposta da API com 10 formulários diferentes
+function mockApiCall(): Promise<FormData[]> {
   return new Promise((resolve) => {
     // Simular uma resposta da API após um curto período de tempo
     setTimeout(() => {
-      const mockData: TemplateData[] = [];
+      const mockData: FormData[] = [];
       for (let i = 1; i <= 10; i++) {
         mockData.push({
-          title: `Formulário ${i} mockado`,
-          imageUrl: `/img/templates/template${i}.webp`,
+          title: `Formulário ${i}`,
+          imageUrl: `/img/forms/form${i}.webp`,
         });
       }
       resolve(mockData);
@@ -23,15 +23,15 @@ function mockApiCall(): Promise<TemplateData[]> {
   });
 }
 
-function Templates() {
-  const [templateDataList, setTemplateDataList] = useState<TemplateData[] | null>(null);
+function MyForms() {
+  const [formDataList, setFormDataList] = useState<FormData[]>([]);
 
   useEffect(() => {
     // Fazer uma solicitação mockada (substituindo a solicitação real)
     mockApiCall()
       .then((data) => {
         // Atualizar o estado com os dados mockados
-        setTemplateDataList(data);
+        setFormDataList(data);
       })
       .catch((error) => {
         console.error('Erro ao buscar dados da API', error);
@@ -39,23 +39,23 @@ function Templates() {
   }, []);
 
   return (
-    <div className="templates">
-      <div className="template-title">
-        <h2>Temas</h2>
+    <div className="forms-container">
+      <div className="forms-container-title">
+        <h2>Meus Formulários</h2>
       </div>
-      <div className="template-scroll">
-        <div className="template-container">
-          {templateDataList && templateDataList.map((template, index) => (
-            <div key={index} className="custom-card card">
+      <div className="forms-container-scroll">
+        <div className="forms">
+          {formDataList.map((form, index) => (
+            <div key={index} className="forms-custom-card card">
               <img
-                src={template.imageUrl}
+                src={form.imageUrl}
                 className="card-img-top img-fluid"
-                alt={`template${index + 1}`}
+                alt={`form${index + 1}`}
               ></img>
               <div className="card-body">
-                <h5 className="card-title">{template.title}</h5>
+                <h5 className="card-title">{form.title}</h5>
                 <a href="#" className="btn btn-sm btn-primary">
-                  Experimente
+                  Visualizar
                 </a>
               </div>
             </div>
@@ -66,4 +66,4 @@ function Templates() {
   );
 }
 
-export default Templates;
+export default MyForms;

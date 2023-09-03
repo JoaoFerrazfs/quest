@@ -38,7 +38,7 @@
 
 .templates {
     background-color: #d2dbeb3d;
-    height: 38vh;
+    height: auto;
     display: flex;
     flex-direction: column;  
     overflow-x: auto

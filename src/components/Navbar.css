@@ -1,0 +1,19 @@
+.custom-navbar {
+    background-color: #4c4e5293;
+    height:auto;
+    margin: 10px 0;
+}
+
+.logo-container {
+    max-width: 20px;
+}
+
+.logo-container img {
+    max-width: 10vh;
+}
+
+.user-container-img {
+    max-width: 5vh;
+    margin-right: 20h;
+}
+
