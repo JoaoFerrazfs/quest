@@ -1,0 +1,16 @@
+.login-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: auto; /* Defina a largura total da tela */
+    height: 100vh; /* Defina a altura total da tela */
+  
+
+  }
+  
+
+.login-logo{
+    width: 35vh;
+    height: 20vh;
+    border-radius: 5%;
+}
